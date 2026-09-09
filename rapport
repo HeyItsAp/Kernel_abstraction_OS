@@ -1,9 +1,0 @@
-# Assignment 01: Process abstraction
-Github link (Tba):
-
-## 01 The process abstraction
-A process is a step by step execution av a program with restricted rights controlled by the kernel.
-The program usually rests "on top" of the kernel and is dependent on user-level priviliges. Kernel-level operations are step deeper.
-Even so a process usually needs permissions from the kernel for most basic function. Such as accessing memory of any prcess, reading and writing to the disk and hardware settings.
-That means it has to go from user-level to kernel-level for priviliged instructions. It goes up back again after said system call for a certain function, and also on interrupts/execeptions, implemented up-calls and on a new porcess.
-  
