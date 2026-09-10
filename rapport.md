@@ -72,4 +72,6 @@ Address of the program itself in memory can be found using `objdump -f 'filename
 Disassembling a compiled program have som benefits and can be done using `objdump -d mem`. For example, you can find "_start" function; Which is responsible 
 for seting up raw memory, CPU registeres and makes sure to exit safely on `exit()`. It is also responsible for capturing command-line arguments and calls the `main()` function on most programs.
 
+When running the code multiple times, you can notice that after everytime, variables get a new unqiue address. This is due to ASLR, or Address Space Layout Randomization. This was a security messure against early computer virus which exploited the fact.
+The fact being that some programs use the same location for the same variables each time it runs. The address are picked within a certain range, so that isnt totally random and to make sure it doesn't get an address outside it's bounds.
 
