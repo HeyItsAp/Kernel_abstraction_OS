@@ -75,3 +75,32 @@ for seting up raw memory, CPU registeres and makes sure to exit safely on `exit(
 When running the code multiple times, you can notice that after everytime, variables get a new unqiue address. This is due to ASLR, or Address Space Layout Randomization. This was a security messure against early computer virus which exploited the fact.
 The fact being that some programs use the same location for the same variables each time it runs. The address are picked within a certain range, so that isnt totally random and to make sure it doesn't get an address outside it's bounds.
 
+## 4 The stack
+Given the following code:
+'''c
+#include <stdio.h>
+#include <stdlib.h>
+
+void func(){
+	char b = 'b';
+	/*
+	long localvar = 2;
+	printf("func() with localvar @ 0x%08x\n", &localvar);
+	printf("func() frame address @ 0x%08x\n", __builtin_frame_address(0));
+	localvar++;
+	*/
+	b = 'a';
+	func();
+}
+
+int main(){
+	printf("main() frame address @ 0x%08x\n", __builtin_frame_address(0));
+	func();
+	exit(0);
+}
+'''
+Ser vi en eksempel på stackoverflow. "Problemet" her er den rekusrive funksjonen func(). Den har ikke en stop vilkår, altså ingen return nøkkelord. Så dette programmet til å kjøre helt til stack-en imploderer/avsluttes av seg selv.
+
+At any time you can check out all available and allocated resoucres to your shell using ulimit. For example, using `ulimit -s` for view your systems default stack size. For me its:
+
+
