@@ -99,7 +99,7 @@ int main(){
 	exit(0);
 }
 '''
-Ser vi en eksempel på stackoverflow. "Problemet" her er den rekusrive funksjonen func(). Den har ikke en stop vilkår, altså ingen return nøkkelord. Så dette programmet til å kjøre helt til stack-en imploderer/avsluttes av seg selv.
+Ser vi en eksempel på stackoverflow. "Problemet" her er den rekusrive funksjonen func(). Den har ikke en stop vilkår, altså ingen return nøkkelord. Så dette programmet til å kjøre helt til stack-en imploderer/avsluttes av seg selv. Dette demonstreses når vi kjører koden.
 
 At any time you can check out all available and allocated resoucres to your shell using ulimit. For example, using `ulimit -s` for view your systems default stack size. For me its:
 
