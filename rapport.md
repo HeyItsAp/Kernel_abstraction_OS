@@ -64,6 +64,9 @@ void main()
 	printf("Address: %x; Address: %x; Value: %d\n", &var3, var3, *var3);
 '''
 
-The sizes of text, data and bss segments can be found using "size 'filename'". When compiling the code above (named mem) we get the following results:
+The sizes of text, data and bss segments can be found using `size 'filename'`. When compiling the code above (named mem) we get the following results:
+
+
+Address of the program itself in memory can be found using `objdump -f 'filename'`:
 
 
