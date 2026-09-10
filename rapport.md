@@ -99,8 +99,8 @@ int main(){
 	exit(0);
 }
 '''
-Ser vi en eksempel på stackoverflow. "Problemet" her er den rekusrive funksjonen func(). Den har ikke en stop vilkår, altså ingen return nøkkelord. Så dette programmet til å kjøre helt til stack-en imploderer/avsluttes av seg selv. Dette demonstreses når vi kjører koden.
+We see an example on stack-overflowing. The "Problem" appears in the function `func()` where it is recursivly calls itself without a stop condition (no return-statement). This means the program will run this infinitly until the stack gives out or something else entirely. This can be done by running the code
 
 At any time you can check out all available and allocated resoucres to your shell using ulimit. For example, using `ulimit -s` for view your systems default stack size. For me its:
 
-
+When running the code and adding `| grep func | wc -l` you can se how many calls your the function func did. Uncommenting that one section gets you a big number. I got 523324. Which means it did $523324/2=261662$ recursive calls before the stack gave out. Given the my stack size (using `ulimit -s`) which is $8192$ kbytes or $8 192 000$ bytes. This means that each call tok about $8 192 000 / 261 662 = 31.3 (32)$ Bytes.
