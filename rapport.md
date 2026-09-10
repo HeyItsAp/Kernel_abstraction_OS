@@ -69,4 +69,7 @@ The sizes of text, data and bss segments can be found using `size 'filename'`. W
 
 Address of the program itself in memory can be found using `objdump -f 'filename'`:
 
+Disassembling a compiled program have som benefits and can be done using `objdump -d mem`. For example, you can find "_start" function; Which is responsible 
+for seting up raw memory, CPU registeres and makes sure to exit safely on `exit()`. It is also responsible for capturing command-line arguments and calls the `main()` function on most programs.
+
 
